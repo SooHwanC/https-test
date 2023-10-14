@@ -2,15 +2,7 @@ import React, { useEffect } from 'react';
 
 function App() {
     const getScreenStream = (callback) => {
-        if (navigator.getDisplayMedia) {
-            navigator.getDisplayMedia({ video: true })
-                .then(screenStream => {
-                    callback(screenStream);
-                })
-                .catch(error => {
-                    console.error('Error accessing screen stream:', error);
-                });
-        } else if (navigator.mediaDevices.getDisplayMedia) {
+        if (navigator.mediaDevices.getDisplayMedia) {
             navigator.mediaDevices.getDisplayMedia({ video: true })
                 .then(screenStream => {
                     callback(screenStream);
